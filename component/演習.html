@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
     <title>演習</title>
   </head>
   <body>
     <div id="app">
-      <Hello-w></Hello-w>
+      {{ message }}
+      <p v-if="toggle">
+        <a v-bind:href="url">
+          Vue.js
+        </a>
+      </p>
+      <button @click="popUp">
+        Click
+      </button>
+      <ul>
+        <li v-for=" lang in languages">
+          {{ lang }}
+        </li>
+      </ul>
+      <input type="text" v-model="message" />
+      <input type="submit" value="add" />
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="演習.js"></script>

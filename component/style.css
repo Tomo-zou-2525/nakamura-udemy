@@ -1,0 +1,10 @@
+.subtitle {
+  color: blueviolet;
+  text-decoration-color: blueviolet;
+}
+
+#app a {
+  color: blueviolet;
+  display: block;
+  padding-bottom: 15px;
+}
