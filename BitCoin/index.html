@@ -14,11 +14,16 @@
         Error!!
       </section>
       <section v-else>
-        <ul v-cloak>
-          <li v-for="(price, current) in bpi">
-            {{ current }} : {{ price.rate_float | currentDecimal}}
-          </li>
-        </ul>
+        <div v-if="loading">
+          Loading...
+        </div>
+        <div v-else>
+          <ul v-cloak>
+            <li v-for="(price, current) in bpi">
+              {{ current }} : {{ price.rate_float | currentDecimal}}
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
   </body>

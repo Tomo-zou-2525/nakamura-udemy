@@ -1,9 +1,9 @@
 new Vue({
   el: "#app",
   data: {
-    bpi: null,
-    hasError: false,
-    loading: true
+    bpi: null, //APIから仮想通貨の値を取ってくるプロパティ
+    hasError: false, //通信エラー時に文言を返すプロパティ
+    loading: true //ロード中に画面表示させるプロパティ
   },
   mounted: function() {
     axios
@@ -19,7 +19,12 @@ new Vue({
       .catch(
         function(error) {
           console.log(error);
-          this.hasError = true;
+          this.hasError = true; //通信エラーが起きたらイベント発火
+        }.bind(this)
+      )
+      .finally(
+        function() {
+          this.loading = false;
         }.bind(this)
       );
   },
