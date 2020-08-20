@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Bitcoin</title>
   </head>
-  <body></body>
+  <body>
+    <div id="app">
+      <h2>Bitcoin Lists</h2>
+      <section v-if="hasError">
+        Error!!
+      </section>
+      <section v-else>
+        <ul v-cloak>
+          <li v-for="(price, current) in bpi">
+            {{ current }} : {{ price.rate_float | currentDecimal}}
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="main.js"></script>
 </html>
